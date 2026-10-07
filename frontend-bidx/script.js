@@ -492,4 +492,3 @@ function escapeAttribute(value) {
 // =========================
 
 loadAuctions();
-connectWebSocket();
