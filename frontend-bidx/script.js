@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:8080";
+const API_URL = "https://bidx-auction-app-production.up.railway.app";
 const WS_URL = "ws://localhost:8081";
 
 let auctions = [];
