@@ -1,5 +1,7 @@
 const API_URL = "https://bidx-auction-app-production.up.railway.app";
-const WS_URL = "ws://localhost:8081";
+const WS_URL = window.location.protocol === "https:" 
+    ? "wss://bidx-auction-app-production.up.railway.app" 
+    : "ws://bidx-auction-app-production.up.railway.app";
 
 let auctions = [];
 let currentAuctionId = null;
