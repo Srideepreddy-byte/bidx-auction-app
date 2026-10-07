@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BidX | Campus Marketplace</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container nav">
+            <a href="#" class="logo">Bid<span>X</span></a>
+            <nav>
+                <a href="#auction">Browse</a>
+                <a href="#sell">Sell an Item</a>
+            </nav>
+            <button class="sign-in">Sign In</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="intro">
+            <div class="container">
+                <p class="label">CAMPUS MARKETPLACE</p>
+                <h1>Find something worth bidding for.</h1>
+                <p class="intro-text">Buy and sell useful items within your campus through simple and transparent live auctions.</p>
+            </div>
+        </section>
+
+        <section class="market-actions">
+            <div class="container">
+                <div class="action-grid">
+                    <a href="#auction" class="action-card">
+                        <span class="action-label">BROWSE</span>
+                        <h3>Buy from Students</h3>
+                        <p>Explore live auctions and find useful campus items.</p>
+                    </a>
+                    <a href="#sell" class="action-card">
+                        <span class="action-label">SELL</span>
+                        <h3>Sell an Item</h3>
+                        <p>List your cycle, books, electronics or other items.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="sell-section" id="sell">
+            <div class="container">
+                <div class="sell-header">
+                    <p class="label">SELL SOMETHING</p>
+                    <h2>Create an Auction</h2>
+                </div>
+
+                <form class="sell-form" id="sell-form">
+                    <!-- WORKING IMAGE UPLOAD -->
+                    <div class="form-group image-upload">
+                        <label for="item-image">Item Image</label>
+                        <div class="upload-box">
+                            <input type="file" id="item-image" accept="image/jpeg, image/png, image/webp">
+                            <div class="upload-content" id="upload-preview">
+                                <strong>Upload item photo</strong>
+                                <span>JPG, PNG or WEBP</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="item-name">Item Name</label>
+                        <input type="text" id="item-name" name="item-name" placeholder="e.g. Firefox Cycle" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Category</label>
+                        <select id="category" name="category" required>
+                            <option value="">Select category</option>
+                            <option value="electronics">Electronics</option>
+                            <option value="cycles">Cycles</option>
+                            <option value="books">Books</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="condition">Condition</label>
+                        <select id="condition" name="condition" required>
+                            <option value="new">New</option>
+                            <option value="good">Good</option>
+                            <option value="fair">Fair</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="starting-price">Starting Price</label>
+                        <div class="price-input">
+                            <span>₹</span>
+                            <input type="number" id="starting-price" name="starting-price" placeholder="2500" min="1" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="duration">Auction Duration</label>
+                        <select id="duration" name="duration" required>
+                            <option value="1">1 Hour</option>
+                            <option value="6">6 Hours</option>
+                            <option value="24">24 Hours</option>
+                        </select>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="description">Description</label>
+                        <textarea id="description" name="description" rows="3" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="pickup">Pickup Location</label>
+                        <input type="text" id="pickup-location" name="pickup-location" placeholder="e.g. Hostel Block C" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="upi">UPI ID</label>
+                        <input type="text" id="upi" name="upi" placeholder="yourname@upi" required>
+                    </div>
+                    <div class="form-actions full-width">
+                        <button type="submit" class="create-auction">Create Auction</button>
+                    </div>
+                </form>
+            </div>
+            <div style="margin: 10px 0; text-align: right;">
+    <button onclick="fetchAuctions()" style="padding: 10px 20px; background: #2563eb; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold;">
+        🔄 Refresh Auctions
+    </button>
+</div>
+        </section>
+
+        <section class="auction-section" id="auction">
+            <div class="container">
+                <div class="section-title">
+                    <div>
+                        <p class="label">LIVE NOW</p>
+                        <h2>Live Auctions</h2>
+                    </div>
+                    <span id="auction-count">0 auctions active</span>
+                </div>
+                <div id="auctions-container"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- RESTORED FULL FOOTER -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <a href="#" class="logo">Bid<span>X</span></a>
+                <p>A simple and reliable campus marketplace for buying and selling through auctions.</p>
+            </div>
+
+            <div class="footer-links">
+                <div>
+                    <h4>Marketplace</h4>
+                    <a href="#auction">Browse Auctions</a>
+                    <a href="#sell">Sell an Item</a>
+                </div>
+                <div>
+                    <h4>Categories</h4>
+                    <a href="#">Electronics</a>
+                    <a href="#">Cycles</a>
+                    <a href="#">Books</a>
+                </div>
+                <div>
+                    <h4>Connect</h4>
+                    <a href="#">Instagram</a>
+                    <a href="#">LinkedIn</a>
+                    <a href="#">Twitter</a>
+                </div>
+                <div>
+                    <h4>Get the App</h4>
+                    <a href="#" class="app-link">Mobile App</a>
+                    <span class="app-note">Coming soon</span>
+                </div>
+            </div>
+        </div>
+     
+
+        <div class="container footer-bottom">
+            <span>© 2026 BidX. All rights reserved.</span>
+            <div>
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
