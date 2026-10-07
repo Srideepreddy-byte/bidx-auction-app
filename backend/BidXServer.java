@@ -101,7 +101,7 @@ public class BidXServer {
         });
 
         server.start();
-        System.out.println("BidX server running on http://localhost:8080");
+        System.out.println("BidX server running on port 8080");
     }
 
     private static String readRequestBody(HttpExchange exchange) throws IOException {
@@ -125,7 +125,7 @@ public class BidXServer {
     private static boolean isEmpty(String value) { return value == null || value.isBlank(); }
 
     private static void addCorsHeaders(HttpExchange exchange) {
-        exchange.getResponseHeaders().add("Access-Control-Allow-Origin", "http://127.0.0.1:5500");
+        exchange.getResponseHeaders().add("Access-Control-Allow-Origin", "*");
         exchange.getResponseHeaders().add("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
         exchange.getResponseHeaders().add("Access-Control-Allow-Headers", "Content-Type");
     }
